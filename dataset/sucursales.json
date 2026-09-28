@@ -1,0 +1,53 @@
+{
+	"name": "sucursales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "tablasss"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sucursal_id",
+				"type": "varchar"
+			},
+			{
+				"name": "restaurante_id",
+				"type": "varchar"
+			},
+			{
+				"name": "nombre_sucursal",
+				"type": "varchar"
+			},
+			{
+				"name": "ciudad",
+				"type": "varchar"
+			},
+			{
+				"name": "zona",
+				"type": "varchar"
+			},
+			{
+				"name": "direccion",
+				"type": "varchar"
+			},
+			{
+				"name": "capacidad_mesas",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "tiene_delivery",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sucursales"
+		}
+	}
+}
