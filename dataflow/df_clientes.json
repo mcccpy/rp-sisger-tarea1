@@ -30,6 +30,9 @@
 				},
 				{
 					"name": "derivedColumn2"
+				},
+				{
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
@@ -49,9 +52,16 @@
 				"          email = trim(email)) ~> derivedColumn1",
 				"derivedColumn1 split(!isNull(cliente_id) && !isNull(nombre) && !isNull(email) && !isNull(fecha_registro) && !isNull(ciudad) ,",
 				"     disjoint: false) ~> split1@(acept, rec)",
-				"split1@acept derive(fecha_registro = toDate(fecha_registro)\r",
+				"aggregate1 derive(fecha_registro = toDate(fecha_registro)\r",
 				"\r",
 				") ~> derivedColumn2",
+				"split1@acept aggregate(groupBy(cliente_id),",
+				"     nombre = first(nombre),",
+				"          email = first(email),",
+				"          telefono = first(telefono),",
+				"          ciudad = first(ciudad),",
+				"          fecha_registro = first(fecha_registro),",
+				"          segmento = first(segmento)) ~> aggregate1",
 				"derivedColumn2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
