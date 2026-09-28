@@ -1,0 +1,45 @@
+{
+	"name": "calificacion",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "tablasss"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "calificacion_id",
+				"type": "varchar"
+			},
+			{
+				"name": "pedido_id",
+				"type": "varchar"
+			},
+			{
+				"name": "cliente_id",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_calificacion",
+				"type": "date"
+			},
+			{
+				"name": "puntuacion",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "comentario",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "calificacion"
+		}
+	}
+}
